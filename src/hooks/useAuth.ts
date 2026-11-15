@@ -18,10 +18,6 @@ export function useAuth() {
   })
 
   const checkAdmin = useCallback(async (userId: string): Promise<boolean> => {
-    // Check if demo dev admin mode is enabled
-    if (localStorage.getItem('demo_admin_active') === 'true') {
-      return true
-    }
     try {
       const { data, error } = await supabase
         .from('admin_users')
@@ -36,16 +32,8 @@ export function useAuth() {
   }, [])
 
   useEffect(() => {
-    // Check local demo admin mode
-    if (localStorage.getItem('demo_admin_active') === 'true') {
-      setState({
-        user: { id: 'demo-admin', email: 'anuj@portfolio.admin' } as any,
-        session: null,
-        isAdmin: true,
-        loading: false,
-      })
-      return
-    }
+    // Clean up any legacy demo keys
+    localStorage.removeItem('demo_admin_active')
 
     // Get initial session
     supabase.auth.getSession().then(async ({ data: { session } }) => {

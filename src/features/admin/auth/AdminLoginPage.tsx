@@ -45,12 +45,6 @@ export default function AdminLoginPage() {
     }
   }
 
-  // Demo bypass for local testing if needed
-  const handleDemoAccess = () => {
-    localStorage.setItem('demo_admin_active', 'true')
-    window.location.href = '/admin'
-  }
-
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center p-4 font-mono text-text">
       <div className="max-w-md w-full rounded-xl border border-border bg-panel p-8 shadow-2xl space-y-6">
@@ -108,17 +102,9 @@ export default function AdminLoginPage() {
         </form>
 
         <div className="pt-2 border-t border-border/60 flex flex-col gap-3 text-center text-xs text-muted">
-          <button
-            type="button"
-            onClick={handleDemoAccess}
-            className="text-accent hover:underline text-[11px] font-semibold"
-          >
-            [Dev Mode: Instant Preview as Admin]
-          </button>
-
           <Link
             to="/"
-            className="flex items-center justify-center gap-1.5 text-muted hover:text-text text-xs"
+            className="flex items-center justify-center gap-1.5 text-muted hover:text-text text-xs py-1"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>Return to Public Portfolio</span>

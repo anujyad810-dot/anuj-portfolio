@@ -10,6 +10,7 @@ import {
   Mail,
   ArrowUp,
   Code2,
+  Lock,
 } from 'lucide-react'
 import { ClickSpark } from '@/components/reactbits/ClickSpark'
 import { AntigravityDots } from '@/components/reactbits/AntigravityDots'
@@ -119,16 +120,14 @@ export function PublicLayout() {
               })}
             </nav>
 
-            {/* Right Action Bar (Admin + Mobile Button) */}
+            {/* Right Action Bar (Contact CTA + Mobile Button) */}
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Admin Portal Link */}
+              {/* Contact Button */}
               <Link
-                to="/admin/login"
-                className="hidden sm:inline-flex items-center gap-1.5 text-xs text-muted hover:text-text px-2.5 py-1.5 rounded-lg border border-border/80 hover:border-accent/40 hover:bg-panel transition-colors font-mono bg-panel/60 backdrop-blur-xs"
-                title="Admin CMS Portal"
+                to="/contact"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs text-accent font-medium hover:text-white px-3 py-1.5 rounded-lg border border-accent/30 bg-accent/10 hover:bg-accent transition-all font-sans shadow-xs"
               >
-                <Code2 className="h-3.5 w-3.5 text-muted" />
-                <span>Admin</span>
+                <span>Get in touch</span>
               </Link>
 
               {/* Mobile Menu Hamburger */}
@@ -219,8 +218,16 @@ export function PublicLayout() {
                   <span>{name}</span>
                   <span className="text-muted font-normal">• Portfolio</span>
                 </p>
-                <p className="text-xs text-muted">
-                  Designed & built with React, TypeScript & Supabase.
+                <p className="text-xs text-muted flex items-center justify-center sm:justify-start gap-2">
+                  <span>Designed & built with React, TypeScript & Supabase.</span>
+                  <Link
+                    to="/admin/login"
+                    className="opacity-25 hover:opacity-90 text-muted hover:text-accent transition-all p-0.5"
+                    title="Admin"
+                    aria-label="Admin"
+                  >
+                    <Lock className="h-3 w-3" />
+                  </Link>
                 </p>
               </div>
 

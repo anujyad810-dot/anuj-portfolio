@@ -17,8 +17,8 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
     )
   }
 
-  // If Supabase credentials are placeholder or not logged in, redirect to login
-  if (!user && !isAdmin) {
+  // Strictly require both active authenticated user and confirmed admin role
+  if (!user || !isAdmin) {
     return <Navigate to="/admin/login" replace />
   }
 
