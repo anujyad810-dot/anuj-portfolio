@@ -1,0 +1,7 @@
+export * from './TitleBar'
+export * from './ActivityBar'
+export * from './Explorer'
+export * from './TabBar'
+export * from './StatusBar'
+export * from './CommandPalette'
+export * from './Terminal'
